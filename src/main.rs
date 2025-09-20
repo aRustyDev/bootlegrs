@@ -8,6 +8,7 @@ use figment::{
     providers::{Env, Format, Json, Toml},
 };
 use serde::Deserialize;
+use std::fmt;
 use std::io;
 
 const MANIFEST_DIR: &str = env!("CARGO_MANIFEST_DIR");
@@ -21,6 +22,8 @@ const PKG_VER_MAJ: &str = env!("CARGO_PKG_VERSION_MAJOR");
 const PKG_VER_MIN: &str = env!("CARGO_PKG_VERSION_MINOR");
 const PKG_VER_PAT: &str = env!("CARGO_PKG_VERSION_PATCH");
 const PKG_VER_PRE: &str = env!("CARGO_PKG_VERSION_PRE");
+
+const OPT_DIR: &str = "/opt/bootleg";
 
 fn main() {
     let args = Args::parse();
