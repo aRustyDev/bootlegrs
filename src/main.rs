@@ -31,9 +31,6 @@ fn main() {
     println!("recipe: {:?}", args.recipe);
 
     match &args.command {
-        Some(Bootleg::Commands { to }) => {
-            todo!()
-        }
         Some(Bootleg::Completions { shell }) => {
             app::completions::print(shell);
         }

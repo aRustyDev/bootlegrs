@@ -1,4 +1,3 @@
-pub mod commands;
 pub mod completions;
 pub mod config;
 pub mod edit;
