@@ -12,7 +12,7 @@ clap_complete_nushell = "4.5.8"
 comfy-table = "7.2.1"
 crossterm = "0.29.0"
 dialoguer = "0.12.0"
-figment = { version = "0.10.19", features = ["json","env", "serde_json", "serde_yaml", "toml"]}
+figment = { version = "0.10.19", features = ["test", "json","env", "serde_json", "serde_yaml", "toml"]}
 indicatif = "0.18.0"
 ratatui = { version = "0.29.0", features = ["all-widgets", "document-features", "palette", "scrolling-regions", "serde", "termion"] }
 schemars = "1.0.4"

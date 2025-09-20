@@ -1,5 +1,5 @@
 use crate::PKG_NAME;
-use crate::cmd::Args;
+use crate::cli::args::Args;
 use clap::CommandFactory;
 use clap_complete::aot::{Shell, generate};
 use clap_complete_nushell::Nushell;

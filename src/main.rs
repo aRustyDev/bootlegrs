@@ -1,9 +1,10 @@
 mod apps;
-mod cmd;
+mod cli;
 mod schema;
 
 use clap::{Arg, ArgAction, Command, Parser, ValueHint, builder::PossibleValue, value_parser};
-use cmd::{Args, Bootleg};
+use cli::args::Args;
+use cli::commands::Bootleg;
 use figment::{
     Figment,
     providers::{Env, Format, Json, Toml},
