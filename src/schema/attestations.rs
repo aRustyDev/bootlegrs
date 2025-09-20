@@ -6,18 +6,18 @@ pub struct Attestations {
     // https://slsa.dev/attestation-model
     // https://fossa.com/glossary/attestation/
     // https://openssf.org/technical-initiatives/software-supply-chain/
+    pub osv: Vec<Attestation>,
     pub slsa: Vec<Attestation>,
     pub sbom: Vec<Attestation>,
-    pub intoto: Vec<Attestation>,
-    pub sigstore: Vec<Attestation>,
-    pub cyclonedx: Vec<Attestation>,
     pub spdx: Vec<Attestation>,
     pub build: Vec<Attestation>,
-    pub provenance: Vec<Attestation>,
     pub policy: Vec<Attestation>,
+    pub intoto: Vec<Attestation>,
     pub testing: Vec<Attestation>,
-    pub osv: Vec<Attestation>,
     pub openvex: Vec<Attestation>,
+    pub sigstore: Vec<Attestation>,
+    pub cyclonedx: Vec<Attestation>,
+    pub provenance: Vec<Attestation>,
 }
 
 #[derive(JsonSchema)]

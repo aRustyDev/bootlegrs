@@ -1,7 +1,7 @@
-mod attestations;
-mod dependencies;
-pub mod lib;
-mod recipe;
-mod rotgut;
-mod speakeasy;
-mod still;
+pub mod attestations;
+pub mod dependencies;
+pub mod licenses;
+pub mod recipe;
+pub mod rotgut;
+pub mod speakeasy;
+pub mod still;

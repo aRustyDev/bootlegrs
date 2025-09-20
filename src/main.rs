@@ -1,4 +1,4 @@
-mod app;
+mod apps;
 mod cmd;
 mod schema;
 
@@ -29,11 +29,11 @@ const OPT_DIR: &str = "/opt/bootleg";
 fn main() {
     let args = Args::parse();
 
-    println!("recipe: {:?}", args.recipe);
+    // println!("recipe: {:?}", args.recipe);
 
     match &args.command {
         Some(Bootleg::Completions { shell }) => {
-            app::completions::print(shell);
+            apps::completions::print(shell);
         }
         Some(Bootleg::Config { to }) => {
             todo!()
@@ -60,7 +60,7 @@ fn main() {
             todo!()
         }
         Some(Bootleg::Schema { schema }) => {
-            schema::lib::generate_schema(schema);
+            apps::schema::generate_schema(schema);
         }
         Some(Bootleg::Search { to }) => {
             todo!()

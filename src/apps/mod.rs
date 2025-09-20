@@ -7,6 +7,7 @@ pub mod init;
 pub mod install;
 pub mod list;
 pub mod new;
+pub mod schema;
 pub mod search;
 pub mod taps;
 pub mod tui;

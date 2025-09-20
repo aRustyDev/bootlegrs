@@ -62,7 +62,7 @@ pub enum Bootleg {
         to: String,
     },
     Schema {
-        #[arg(long, help = "Generate JSON Schemas")]
+        #[arg(long, help = "Generate JSON Schemas", default_value = "all")]
         schema: String,
     },
     Search {
