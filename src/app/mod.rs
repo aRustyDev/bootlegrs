@@ -1,0 +1,16 @@
+pub mod commands;
+pub mod completions;
+pub mod config;
+pub mod edit;
+pub mod health;
+pub mod info;
+pub mod init;
+pub mod install;
+pub mod list;
+pub mod new;
+pub mod search;
+pub mod taps;
+pub mod tui;
+pub mod uninstall;
+pub mod update;
+pub mod upgrade;
