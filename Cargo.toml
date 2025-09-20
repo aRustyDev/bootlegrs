@@ -1,0 +1,24 @@
+[package]
+name = "bootleg"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.47", features = ["derive"] }
+clap-i18n-richformatter = "0.1.4"
+clap-verbosity-flag = { version = "3.0.4", features = ["log", "serde", "tracing"] }
+clap_complete = "4.5.58"
+clap_complete_nushell = "4.5.8"
+comfy-table = "7.2.1"
+crossterm = "0.29.0"
+dialoguer = "0.12.0"
+figment = { version = "0.10.19", features = ["json","env", "serde_json", "serde_yaml", "toml"]}
+indicatif = "0.18.0"
+ratatui = { version = "0.29.0", features = ["all-widgets", "document-features", "palette", "scrolling-regions", "serde", "termion"] }
+serde = "1.0.225"
+serde_json = "1.0.145"
+serde_yaml = "0.9.34"
+
+[build-dependencies]
+clap = { version = "4.5.47", features = ["derive"] }
+clap_mangen = "0.2.29"
