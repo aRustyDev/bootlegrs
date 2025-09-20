@@ -61,6 +61,10 @@ pub enum Bootleg {
         #[arg(long)]
         to: String,
     },
+    Schema {
+        #[arg(long, help = "Generate JSON Schemas")]
+        schema: String,
+    },
     Search {
         #[arg(long, help = "Search related actions")]
         to: String,

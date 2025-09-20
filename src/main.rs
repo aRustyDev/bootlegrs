@@ -1,5 +1,6 @@
 mod app;
 mod cmd;
+mod schema;
 
 use clap::{Arg, ArgAction, Command, Parser, ValueHint, builder::PossibleValue, value_parser};
 use cmd::{Args, Bootleg};
@@ -57,6 +58,9 @@ fn main() {
         }
         Some(Bootleg::New { to }) => {
             todo!()
+        }
+        Some(Bootleg::Schema { schema }) => {
+            schema::lib::generate_schema(schema);
         }
         Some(Bootleg::Search { to }) => {
             todo!()
