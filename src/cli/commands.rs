@@ -1,8 +1,9 @@
-use crate::{PKG_AUTHORS, PKG_DESC};
-use clap::{Parser, Subcommand};
-use clap_verbosity_flag;
+use crate::apps::schema::SchemaType;
+use clap::Subcommand;
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
 
-#[derive(Subcommand, Debug)]
+#[derive(Subcommand, Debug, Eq, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub enum Bootleg {
     Completions {
         #[arg(
@@ -44,8 +45,12 @@ pub enum Bootleg {
         to: String,
     },
     Schema {
-        #[arg(long, help = "Generate JSON Schemas", default_value = "all")]
-        schema: String,
+        #[arg(
+            value_name = "TYPE",
+            help = "Generate JSON Schemas",
+            default_value = "all"
+        )]
+        schema: SchemaType,
     },
     Search {
         #[arg(long, help = "Search related actions")]

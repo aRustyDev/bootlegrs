@@ -1,1 +1,2 @@
-pub mod xdg;
+pub mod lib;
+mod xdg;

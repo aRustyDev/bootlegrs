@@ -6,13 +6,14 @@ edition = "2024"
 [dependencies]
 clap = { version = "4.5.47", features = ["derive"] }
 clap-i18n-richformatter = "0.1.4"
-clap-verbosity-flag = { version = "3.0.4", features = ["log", "serde", "tracing"] }
+clap-verbosity-flag = { path = "/Users/arustydev/repos/contribute/clap-verbosity-flag", version = "3.0.4", features = ["log", "serde", "tracing", "schemars"] }
 clap_complete = "4.5.58"
 clap_complete_nushell = "4.5.8"
 comfy-table = "7.2.1"
 crossterm = "0.29.0"
 dialoguer = "0.12.0"
-figment = { version = "0.10.19", features = ["test", "json","env", "serde_json", "serde_yaml", "toml"]}
+dirs = "6.0.0"
+figment = { version = "0.10.19", features = ["test", "json","env", "serde_json", "serde_yaml", "yaml", "toml"]}
 indicatif = "0.18.0"
 ratatui = { version = "0.29.0", features = ["all-widgets", "document-features", "palette", "scrolling-regions", "serde", "termion"] }
 schemars = "1.0.4"

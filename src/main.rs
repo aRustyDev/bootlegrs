@@ -1,10 +1,12 @@
 mod apps;
 mod cli;
+mod config;
 mod schema;
 
 use clap::{Arg, ArgAction, Command, Parser, ValueHint, builder::PossibleValue, value_parser};
 use cli::args::Args;
 use cli::commands::Bootleg;
+use config::lib::Config;
 use figment::{
     Figment,
     providers::{Env, Format, Json, Toml},
@@ -27,10 +29,11 @@ const PKG_VER_PRE: &str = env!("CARGO_PKG_VERSION_PRE");
 
 const OPT_DIR: &str = "/opt/bootleg";
 
-fn main() {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
+    let config = Config::load()?;
 
-    // println!("recipe: {:?}", args.recipe);
+    println!("config: {:?}", config);
 
     match &args.command {
         Some(Bootleg::Completions { shell }) => {
@@ -85,4 +88,5 @@ fn main() {
             println!("There was no subcommand given");
         }
     }
+    Ok(())
 }
