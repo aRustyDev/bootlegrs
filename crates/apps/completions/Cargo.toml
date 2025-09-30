@@ -27,5 +27,4 @@ clap = { version = "4.5.47", features = ["derive"] }
 clap_complete = "4.5.58"
 clap_complete_nushell = "4.5.8"
 clap-i18n-richformatter = "0.1.4"
-clap-verbosity-flag = { path = "../../clap/verbosity" }
-
+clap-verbosity-flag = { path = "../../cli/clap/verbosity" }
