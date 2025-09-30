@@ -1,11 +1,11 @@
-use crate::Bootleg;
+use crate::commands::Bootleg;
 use clap::Parser;
-use clap_verbosity_flag::ErrorLevel;
-use clap_verbosity_flag::LogLevel;
-use clap_verbosity_flag::Verbosity;
+// use clap_verbosity_flag::ErrorLevel;
+// use clap_verbosity_flag::LogLevel;
+// use clap_verbosity_flag::Verbosity;
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
-use std::marker::PhantomData;
+// use std::marker::PhantomData;
 
 const PKG_AUTHORS: &str = env!("CARGO_PKG_AUTHORS");
 const PKG_DESC: &str = env!("CARGO_PKG_DESCRIPTION");
@@ -46,6 +46,6 @@ pub struct Args {
     #[command(subcommand)]
     pub command: Option<Bootleg>,
 
-    #[command(flatten)]
-    verbosity: Verbosity,
+    // #[command(flatten)]
+    // verbosity: Verbosity,
 }

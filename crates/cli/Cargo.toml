@@ -23,7 +23,7 @@ test = true  # Is tested by default.
 
 [dependencies]
 clap = { version = "4.5.47", features = ["derive"] }
-config = { path = "../config" }
+schema = { path = "../schema" }
 schemars = "1.0.4"
 serde = "1.0.225"
 serde_json = "1.0.145"

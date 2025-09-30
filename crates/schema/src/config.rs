@@ -1,5 +1,3 @@
-// mod xdg;
-use crate::xdg;
 use clap::Parser;
 use schemars::JsonSchema;
 use std::env;

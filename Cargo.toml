@@ -1,11 +1,11 @@
 [workspace]
 resolver = "2"
 members = [
-  "crates/apps",
+  "crates/apps/completions",
+  "crates/apps/config",
+  "crates/apps/gen_schema",
   "crates/bootleg",
   "crates/cli",
-  "crates/completions",
-  "crates/config",
   "crates/schema",
 ]
 default-members = ["crates/bootleg"]

@@ -1,13 +1,8 @@
 use cli::args;
-use config::lib;
-use schema::{recipe, rotgut, speakeasy, still, SchemaType};
-use clap::ValueEnum;
-use schemars::JsonSchema;
+use schema::{config::Config, recipe, rotgut, speakeasy, still, SchemaType};
 use schemars::generate::SchemaSettings;
-use serde::{Deserialize, Serialize};
 
-
-
+#[allow(unreachable_patterns)]
 pub fn generate_schema(target: &SchemaType) {
     let settings = SchemaSettings::default().for_serialize();
     let generator = settings.into_generator();
@@ -31,7 +26,7 @@ pub fn generate_schema(target: &SchemaType) {
         SchemaType::Config => {
             let schema = generator.clone().into_root_schema_for::<args::Args>();
             println!("{}", serde_json::to_string_pretty(&schema).unwrap());
-            let schema = generator.clone().into_root_schema_for::<lib::Config>();
+            let schema = generator.clone().into_root_schema_for::<Config>();
             println!("{}", serde_json::to_string_pretty(&schema).unwrap());
         }
         SchemaType::All => {

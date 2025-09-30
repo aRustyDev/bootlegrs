@@ -53,24 +53,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "apps"
-version = "0.1.0"
-dependencies = [
- "clap",
- "clap-i18n-richformatter",
- "clap-verbosity-flag",
- "clap_complete",
- "clap_complete_nushell",
- "cli",
- "config",
- "schema",
- "schemars",
- "serde",
- "serde_json",
- "serde_yaml",
-]
-
-[[package]]
 name = "arc-swap"
 version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -119,9 +101,20 @@ dependencies = [
 name = "bootleg"
 version = "0.1.0"
 dependencies = [
- "apps",
+ "clap",
+ "clap-i18n-richformatter",
+ "clap_builder",
+ "clap_complete",
+ "clap_complete_nushell",
  "cli",
- "config",
+ "completions",
+ "figment",
+ "gen_schema",
+ "schema",
+ "schemars",
+ "serde",
+ "serde_json",
+ "serde_yaml",
 ]
 
 [[package]]
@@ -223,7 +216,7 @@ name = "cli"
 version = "0.1.0"
 dependencies = [
  "clap",
- "config",
+ "schema",
  "schemars",
  "serde",
  "serde_json",
@@ -239,6 +232,14 @@ checksum = "b05b61dc5112cbb17e4b6cd61790d9845d13888356391624cbe7e41efeac1e75"
 [[package]]
 name = "completions"
 version = "0.1.0"
+dependencies = [
+ "clap",
+ "clap-i18n-richformatter",
+ "clap-verbosity-flag",
+ "clap_complete",
+ "clap_complete_nushell",
+ "cli",
+]
 
 [[package]]
 name = "config"
@@ -246,10 +247,10 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "clap-i18n-richformatter",
+ "clap-verbosity-flag",
  "clap_complete",
  "clap_complete_nushell",
- "dirs",
- "figment",
+ "cli",
  "schemars",
  "serde",
  "serde_json",
@@ -288,8 +289,6 @@ dependencies = [
 [[package]]
 name = "dirs"
 version = "6.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3e8aa94d75141228480295a7d0e7feb620b1a5ad9f12bc40be62411e38cce4e"
 dependencies = [
  "dirs-sys",
 ]
@@ -415,6 +414,23 @@ checksum = "54f0d287c53ffd184d04d8677f590f4ac5379785529e5e08b1c8083acdd5c198"
 dependencies = [
  "memchr",
  "thiserror 2.0.17",
+]
+
+[[package]]
+name = "gen_schema"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "clap-i18n-richformatter",
+ "clap-verbosity-flag",
+ "clap_complete",
+ "clap_complete_nushell",
+ "cli",
+ "schema",
+ "schemars",
+ "serde",
+ "serde_json",
+ "serde_yaml",
 ]
 
 [[package]]
@@ -859,6 +875,8 @@ dependencies = [
  "clap-i18n-richformatter",
  "clap_complete",
  "clap_complete_nushell",
+ "dirs",
+ "figment",
  "schemars",
  "serde",
  "serde_json",

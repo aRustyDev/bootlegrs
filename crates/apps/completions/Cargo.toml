@@ -1,5 +1,5 @@
 [package]
-name = "config"
+name = "completions"
 version = "0.1.0"
 edition.workspace = true
 description = "Experimental reimplementation of homebrew in rust."
@@ -13,7 +13,7 @@ crate-type = ["lib"]  # The crate types to generate.
 doc = true  # Is documented by default.
 doctest = true  # Documentation examples are tested by default.
 harness = true  # Use libtest harness.
-name = "config"  # The name of the target.
+name = "completions"  # The name of the target.
 path = "src/lib.rs"  # The source file of the target.
 proc-macro = false  # Set to `true` for a proc-macro library.
 required-features = [
@@ -26,17 +26,5 @@ clap = { version = "4.5.47", features = ["derive"] }
 clap_complete = "4.5.58"
 clap_complete_nushell = "4.5.8"
 clap-i18n-richformatter = "0.1.4"
-dirs = { path = "../utils/dirs", version = "6.0.0" }
-figment = { version = "0.10.19", features = [
-  "env",
-  "json",
-  "serde_json",
-  "serde_yaml",
-  "test",
-  "toml",
-  "yaml",
-] }
-schemars = "1.0.4"
-serde = { version = "1.0.225", features = ["derive"] }
-serde_json = "1.0.145"
-serde_yaml = "0.9.34"
+clap-verbosity-flag = { path = "../../clap/verbosity" }
+cli = { path = "../../cli" }

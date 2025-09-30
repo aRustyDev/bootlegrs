@@ -5,6 +5,7 @@ pub mod recipe;
 pub mod rotgut;
 pub mod speakeasy;
 pub mod still;
+pub mod config;
 
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
