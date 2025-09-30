@@ -1,8 +1,12 @@
-fn main() -> std::io::Result<()> {
-    let out_dir =
-        std::path::PathBuf::from(std::env::var_os("OUT_DIR").ok_or(std::io::ErrorKind::NotFound)?);
+const BIN_NAME: &str = "bootleg";
+const MAN_DIR: &str = "./docs/man";
 
-    let cmd = clap::Command::new("mybin")
+fn main() -> std::io::Result<()> {
+    // Build MAN Pages at build time
+    let out_dir =
+        std::path::PathBuf::from(std::env::var_os(MAN_DIR).ok_or(std::io::ErrorKind::NotFound)?);
+
+    let cmd = clap::Command::new(BIN_NAME)
         .arg(clap::arg!(-n --name <NAME>))
         .arg(clap::arg!(-c --count <NUM>));
 
@@ -10,7 +14,7 @@ fn main() -> std::io::Result<()> {
     let mut buffer: Vec<u8> = Default::default();
     man.render(&mut buffer)?;
 
-    std::fs::write(out_dir.join("mybin.1"), buffer)?;
+    std::fs::write(out_dir.join("{}.1", BIN_NAME), buffer)?;
 
     Ok(())
 }

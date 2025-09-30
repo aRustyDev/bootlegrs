@@ -1,26 +1,124 @@
-[package]
-name = "bootleg"
+[workspace]
+resolver = "2"
+members = [
+  "crates/apps",
+  "crates/bootleg",
+  "crates/cli",
+  "crates/completions",
+  "crates/config",
+  "crates/schema",
+]
+default-members = ["crates/bootleg"]
+
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
+publish = false
 
-[dependencies]
+[workspace.dependencies]
 clap = { version = "4.5.47", features = ["derive"] }
-clap-i18n-richformatter = "0.1.4"
-clap-verbosity-flag = { path = "/Users/arustydev/repos/contribute/clap-verbosity-flag", version = "3.0.4", features = ["log", "serde", "tracing", "schemars"] }
 clap_complete = "4.5.58"
 clap_complete_nushell = "4.5.8"
+clap-i18n-richformatter = "0.1.4"
+clap-verbosity-flag = { path = "./crates/clap/verbosity", version = "3.0.4", features = [
+  "log",
+  "schemars",
+  "serde",
+  "tracing",
+] }
 comfy-table = "7.2.1"
 crossterm = "0.29.0"
 dialoguer = "0.12.0"
-dirs = "6.0.0"
-figment = { version = "0.10.19", features = ["test", "json","env", "serde_json", "serde_yaml", "yaml", "toml"]}
+dirs = { path = "crates/utils/dirs", version = "6.0.0" }
+figment = { version = "0.10.19", features = [
+  "env",
+  "json",
+  "serde_json",
+  "serde_yaml",
+  "test",
+  "toml",
+  "yaml",
+] }
 indicatif = "0.18.0"
-ratatui = { version = "0.29.0", features = ["all-widgets", "document-features", "palette", "scrolling-regions", "serde", "termion"] }
+ratatui = { version = "0.29.0", features = [
+  "all-widgets",
+  "document-features",
+  "palette",
+  "scrolling-regions",
+  "serde",
+  "termion",
+] }
 schemars = "1.0.4"
 serde = "1.0.225"
 serde_json = "1.0.145"
 serde_yaml = "0.9.34"
 
-[build-dependencies]
+[workspace.lints.clippy]
+dbg_macro = "deny"
+# This is not a style lint, see https://github.com/rust-lang/rust-clippy/pull/15454
+# Remove when the lint gets promoted to `suspicious`.
+declare_interior_mutable_const = "deny"
+disallowed_methods = "deny"
+# We often have large enum variants yet we rarely actually bother with splitting them up.
+large_enum_variant = "allow"
+let_underscore_future = "allow"
+# Boolean expressions can be hard to read, requiring only the minimal form gets in the way
+nonminimal_bool = "allow"
+redundant_clone = "deny"
+# Motivation: We use `vec![a..b]` a lot when dealing with ranges in text, so
+# warning on this rule produces a lot of noise.
+single_range_in_vec_init = "allow"
+# We currently do not restrict any style rules
+# as it slows down shipping code to Zed.
+#
+# Running ./script/clippy can take several minutes, and so it's
+# common to skip that step and let CI do it. Any unexpected failures
+# (which also take minutes to discover) thus require switching back
+# to an old branch, manual fixing, and re-pushing.
+#
+# In the future we could improve this by either making sure
+# Zed can surface clippy errors in diagnostics (in addition to the
+# rust-analyzer errors), or by having CI fix style nits automatically.
+style = { level = "allow", priority = -1 }
+todo = "deny"
+# in Rust it can be very tedious to reduce argument count without
+# running afoul of the borrow checker.
+too_many_arguments = "allow"
+# Individual rules that have violations in the codebase:
+type_complexity = "allow"
+
+[workspace.lints.rust]
+unexpected_cfgs = { level = "allow" }
+
+[workspace.metadata.cargo-machete]
+ignored = [
+  "bindgen",
+  "cbindgen",
+  "prost_build",
+  "serde",
+  "component",
+  "documented",
+  "workspace-hack",
+]
+
+[workspace.build-dependencies]
 clap = { version = "4.5.47", features = ["derive"] }
 clap_mangen = "0.2.29"
+
+[profile.dev]
+split-debuginfo = "unpacked"
+codegen-units = 16
+
+[profile.release]
+debug = "limited"
+lto = "thin"
+codegen-units = 1
+
+[profile.release.package]
+bootleg = { codegen-units = 16 }
+
+[profile.release-fast]
+inherits = "release"
+debug = "full"
+lto = false
+codegen-units = 16
