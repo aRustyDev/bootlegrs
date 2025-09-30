@@ -5,7 +5,8 @@ members = [
   "crates/apps/config",
   "crates/apps/gen_schema",
   "crates/bootleg",
-  "crates/cli",
+  "crates/cli/args",
+  "crates/cli/commands",
   "crates/schema",
   "crates/utils/dirs",
 ]

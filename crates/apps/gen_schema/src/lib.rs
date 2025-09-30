@@ -1,4 +1,3 @@
-use cli::args;
 use schema::{config::Config, recipe, rotgut, speakeasy, still, SchemaType};
 use schemars::generate::SchemaSettings;
 

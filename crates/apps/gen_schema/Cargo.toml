@@ -22,12 +22,12 @@ required-features = [
 test = true  # Is tested by default.
 
 [dependencies]
+args = { path = "../../cli/args" }
 clap = { version = "4.5.47", features = ["derive"] }
 clap_complete = "4.5.58"
 clap_complete_nushell = "4.5.8"
 clap-i18n-richformatter = "0.1.4"
 clap-verbosity-flag = { path = "../../clap/verbosity" }
-cli = { path = "../../cli" }
 schema = { path = "../../schema" }
 schemars = "1.0.4"
 serde = "1.0.225"

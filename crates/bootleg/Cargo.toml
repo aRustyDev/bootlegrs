@@ -7,12 +7,14 @@ license-file = "./LICENSE"
 publish.workspace = true
 
 [dependencies]
+# clap-verbosity-flag = { path = "../../clap/verbosity" }
+args = { path = "../cli/args" }
 clap = { version = "4.5.47", features = ["derive"] }
+clap_builder = "4.5.48"
 clap_complete = "4.5.58"
 clap_complete_nushell = "4.5.8"
 clap-i18n-richformatter = "0.1.4"
-# clap-verbosity-flag = { path = "../../clap/verbosity" }
-cli = { path = "../cli" }
+commands = { path = "../cli/commands" }
 completions = { path = "../apps/completions" }
 figment = { version = "0.10.19", features = [
   "env",
@@ -29,4 +31,3 @@ schemars = "1.0.4"
 serde = "1.0.225"
 serde_json = "1.0.145"
 serde_yaml = "0.9.34"
-clap_builder = "4.5.48"

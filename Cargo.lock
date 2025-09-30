@@ -59,6 +59,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "69f7f8c3906b62b754cd5326047894316021dcfe5a194c8ea52bdd94934a3457"
 
 [[package]]
+name = "args"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "commands",
+ "schema",
+ "schemars",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+]
+
+[[package]]
 name = "atomic"
 version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -101,12 +114,13 @@ dependencies = [
 name = "bootleg"
 version = "0.1.0"
 dependencies = [
+ "args",
  "clap",
  "clap-i18n-richformatter",
  "clap_builder",
  "clap_complete",
  "clap_complete_nushell",
- "cli",
+ "commands",
  "completions",
  "figment",
  "gen_schema",
@@ -212,7 +226,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b94f61472cee1439c0b966b47e3aca9ae07e45d070759512cd390ea2bebc6675"
 
 [[package]]
-name = "cli"
+name = "colorchoice"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b05b61dc5112cbb17e4b6cd61790d9845d13888356391624cbe7e41efeac1e75"
+
+[[package]]
+name = "commands"
 version = "0.1.0"
 dependencies = [
  "clap",
@@ -224,38 +244,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "colorchoice"
-version = "1.0.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b05b61dc5112cbb17e4b6cd61790d9845d13888356391624cbe7e41efeac1e75"
-
-[[package]]
 name = "completions"
 version = "0.1.0"
 dependencies = [
+ "args",
  "clap",
  "clap-i18n-richformatter",
  "clap-verbosity-flag",
  "clap_complete",
  "clap_complete_nushell",
- "cli",
 ]
 
 [[package]]
 name = "config"
 version = "0.1.0"
-dependencies = [
- "clap",
- "clap-i18n-richformatter",
- "clap-verbosity-flag",
- "clap_complete",
- "clap_complete_nushell",
- "cli",
- "schemars",
- "serde",
- "serde_json",
- "serde_yaml",
-]
 
 [[package]]
 name = "cpufeatures"
@@ -420,12 +422,12 @@ dependencies = [
 name = "gen_schema"
 version = "0.1.0"
 dependencies = [
+ "args",
  "clap",
  "clap-i18n-richformatter",
  "clap-verbosity-flag",
  "clap_complete",
  "clap_complete_nushell",
- "cli",
  "schema",
  "schemars",
  "serde",

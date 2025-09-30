@@ -1,6 +1,6 @@
 use clap::Parser;
-use cli::args::Args;
-use cli::commands::Bootleg;
+use args::Args;
+use commands::Bootleg;
 use schema::config::Config;
 
 #[allow(unused)]

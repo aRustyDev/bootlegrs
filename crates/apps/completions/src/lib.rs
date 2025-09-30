@@ -1,4 +1,4 @@
-use cli::args::Args;
+use args::Args;
 use clap::CommandFactory;
 use clap_complete::aot::{Shell, generate};
 use clap_complete_nushell::Nushell;
