@@ -1,0 +1,13 @@
+[package]
+name = "bootleg"
+version = "0.1.0"
+edition.workspace = true
+description = "Experimental reimplementation of homebrew in rust."
+license-file = "./LICENSE"
+publish.workspace = true
+
+[dependencies]
+apps = { path = "../apps" }
+cli = { path = "../cli" }
+config = { path = "../config" }
+
