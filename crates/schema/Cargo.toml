@@ -20,3 +20,13 @@ required-features = [
 
 ]  # Features required to build this target (N/A for lib).
 test = true  # Is tested by default.
+
+[dependencies]
+clap = { version = "4.5.47", features = ["derive"] }
+clap_complete = "4.5.58"
+clap_complete_nushell = "4.5.8"
+clap-i18n-richformatter = "0.1.4"
+schemars = "1.0.4"
+serde = { version = "1.0.225", features = ["derive"] }
+serde_json = "1.0.145"
+serde_yaml = "0.9.34"
