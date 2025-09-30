@@ -1,0 +1,22 @@
+[package]
+name = "schema"
+version = "0.1.0"
+edition.workspace = true
+description = "Experimental reimplementation of homebrew in rust."
+license-file = "./LICENSE"
+publish.workspace = true
+
+# Example of customizing the library in Cargo.toml.
+[lib]
+bench = true  # Is benchmarked by default.
+crate-type = ["lib"]  # The crate types to generate.
+doc = true  # Is documented by default.
+doctest = true  # Documentation examples are tested by default.
+harness = true  # Use libtest harness.
+name = "schema"  # The name of the target.
+path = "src/lib.rs"  # The source file of the target.
+proc-macro = false  # Set to `true` for a proc-macro library.
+required-features = [
+
+]  # Features required to build this target (N/A for lib).
+test = true  # Is tested by default.
