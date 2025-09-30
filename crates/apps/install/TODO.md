@@ -17,6 +17,7 @@
   - plist
   - version dirs
 - tests
+- reinstall
 
 ## New Features
 

@@ -13,6 +13,7 @@
 - on Linux, Redox, Windows (≥ Vista), macOS and other platforms.
 
 The library provides the location of these directories by leveraging the mechanisms defined by
+
 - the [XDG base directory](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html) and
   the [XDG user directory](https://www.freedesktop.org/wiki/Software/xdg-user-dirs/) specifications on Linux and Redox
 - the [Known Folder](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378457.aspx) API on Windows
@@ -42,7 +43,8 @@ dirs = "5.0"
 
 into the `[dependencies]` section of your Cargo.toml file.
 
-If you are upgrading from version 2, please read the [section on breaking changes](#3) first.
+If you are upgrading from version 2, please read the
+rubocop first.
 
 #### Example
 
@@ -103,26 +105,26 @@ dirs::executable_dir();
 use `ProjectDirs` of the [directories](https://github.com/dirs-dev/directories-rs) project instead.**
 
 | Function name      | Value on Linux/Redox                                                   | Value on Windows                  | Value on macOS                              |
-|--------------------| ---------------------------------------------------------------------- |-----------------------------------| ------------------------------------------- |
+| ------------------ | ---------------------------------------------------------------------- | --------------------------------- | ------------------------------------------- |
 | `home_dir`         | `Some($HOME)`                                                          | `Some({FOLDERID_Profile})`        | `Some($HOME)`                               |
-| `cache_dir`        | `Some($XDG_CACHE_HOME)`         or `Some($HOME`/.cache`)`              | `Some({FOLDERID_LocalAppData})`   | `Some($HOME`/Library/Caches`)`              |
-| `config_dir`       | `Some($XDG_CONFIG_HOME)`        or `Some($HOME`/.config`)`             | `Some({FOLDERID_RoamingAppData})` | `Some($HOME`/Library/Application Support`)` |
-| `config_local_dir` | `Some($XDG_CONFIG_HOME)`        or `Some($HOME`/.config`)`             | `Some({FOLDERID_LocalAppData})`   | `Some($HOME`/Library/Application Support`)` |
-| `data_dir`         | `Some($XDG_DATA_HOME)`          or `Some($HOME`/.local/share`)`        | `Some({FOLDERID_RoamingAppData})` | `Some($HOME`/Library/Application Support`)` |
-| `data_local_dir`   | `Some($XDG_DATA_HOME)`          or `Some($HOME`/.local/share`)`        | `Some({FOLDERID_LocalAppData})`   | `Some($HOME`/Library/Application Support`)` |
-| `executable_dir`   | `Some($XDG_BIN_HOME)`           or `Some($HOME`/.local/bin`)`          | `None`                            | `None`                                      |
-| `preference_dir`   | `Some($XDG_CONFIG_HOME)`        or `Some($HOME`/.config`)`             | `Some({FOLDERID_RoamingAppData})` | `Some($HOME`/Library/Preferences`)`         |
-| `runtime_dir`      | `Some($XDG_RUNTIME_DIR)`        or `None`                              | `None`                            | `None`                                      |
-| `state_dir`        | `Some($XDG_STATE_HOME)`         or `Some($HOME`/.local/state`)`        | `None`                            | `None`                                      |
-| `audio_dir`        | `Some(XDG_MUSIC_DIR)`           or `None`                              | `Some({FOLDERID_Music})`          | `Some($HOME`/Music/`)`                      |
-| `desktop_dir`      | `Some(XDG_DESKTOP_DIR)`         or `None`                              | `Some({FOLDERID_Desktop})`        | `Some($HOME`/Desktop/`)`                    |
-| `document_dir`     | `Some(XDG_DOCUMENTS_DIR)`       or `None`                              | `Some({FOLDERID_Documents})`      | `Some($HOME`/Documents/`)`                  |
-| `download_dir`     | `Some(XDG_DOWNLOAD_DIR)`        or `None`                              | `Some({FOLDERID_Downloads})`      | `Some($HOME`/Downloads/`)`                  |
+| `cache_dir`        | `Some($XDG_CACHE_HOME)` or `Some($HOME`/.cache`)`                      | `Some({FOLDERID_LocalAppData})`   | `Some($HOME`/Library/Caches`)`              |
+| `config_dir`       | `Some($XDG_CONFIG_HOME)` or `Some($HOME`/.config`)`                    | `Some({FOLDERID_RoamingAppData})` | `Some($HOME`/Library/Application Support`)` |
+| `config_local_dir` | `Some($XDG_CONFIG_HOME)` or `Some($HOME`/.config`)`                    | `Some({FOLDERID_LocalAppData})`   | `Some($HOME`/Library/Application Support`)` |
+| `data_dir`         | `Some($XDG_DATA_HOME)` or `Some($HOME`/.local/share`)`                 | `Some({FOLDERID_RoamingAppData})` | `Some($HOME`/Library/Application Support`)` |
+| `data_local_dir`   | `Some($XDG_DATA_HOME)` or `Some($HOME`/.local/share`)`                 | `Some({FOLDERID_LocalAppData})`   | `Some($HOME`/Library/Application Support`)` |
+| `executable_dir`   | `Some($XDG_BIN_HOME)` or `Some($HOME`/.local/bin`)`                    | `None`                            | `None`                                      |
+| `preference_dir`   | `Some($XDG_CONFIG_HOME)` or `Some($HOME`/.config`)`                    | `Some({FOLDERID_RoamingAppData})` | `Some($HOME`/Library/Preferences`)`         |
+| `runtime_dir`      | `Some($XDG_RUNTIME_DIR)` or `None`                                     | `None`                            | `None`                                      |
+| `state_dir`        | `Some($XDG_STATE_HOME)` or `Some($HOME`/.local/state`)`                | `None`                            | `None`                                      |
+| `audio_dir`        | `Some(XDG_MUSIC_DIR)` or `None`                                        | `Some({FOLDERID_Music})`          | `Some($HOME`/Music/`)`                      |
+| `desktop_dir`      | `Some(XDG_DESKTOP_DIR)` or `None`                                      | `Some({FOLDERID_Desktop})`        | `Some($HOME`/Desktop/`)`                    |
+| `document_dir`     | `Some(XDG_DOCUMENTS_DIR)` or `None`                                    | `Some({FOLDERID_Documents})`      | `Some($HOME`/Documents/`)`                  |
+| `download_dir`     | `Some(XDG_DOWNLOAD_DIR)` or `None`                                     | `Some({FOLDERID_Downloads})`      | `Some($HOME`/Downloads/`)`                  |
 | `font_dir`         | `Some($XDG_DATA_HOME`/fonts/`)` or `Some($HOME`/.local/share/fonts/`)` | `None`                            | `Some($HOME`/Library/Fonts/`)`              |
-| `picture_dir`      | `Some(XDG_PICTURES_DIR)`        or `None`                              | `Some({FOLDERID_Pictures})`       | `Some($HOME`/Pictures/`)`                   |
-| `public_dir`       | `Some(XDG_PUBLICSHARE_DIR)`     or `None`                              | `Some({FOLDERID_Public})`         | `Some($HOME`/Public/`)`                     |
-| `template_dir`     | `Some(XDG_TEMPLATES_DIR)`       or `None`                              | `Some({FOLDERID_Templates})`      | `None`                                      |
-| `video_dir`        | `Some(XDG_VIDEOS_DIR)`          or `None`                              | `Some({FOLDERID_Videos})`         | `Some($HOME`/Movies/`)`                     |
+| `picture_dir`      | `Some(XDG_PICTURES_DIR)` or `None`                                     | `Some({FOLDERID_Pictures})`       | `Some($HOME`/Pictures/`)`                   |
+| `public_dir`       | `Some(XDG_PUBLICSHARE_DIR)` or `None`                                  | `Some({FOLDERID_Public})`         | `Some($HOME`/Public/`)`                     |
+| `template_dir`     | `Some(XDG_TEMPLATES_DIR)` or `None`                                    | `Some({FOLDERID_Templates})`      | `None`                                      |
+| `video_dir`        | `Some(XDG_VIDEOS_DIR)` or `None`                                       | `Some({FOLDERID_Videos})`         | `Some($HOME`/Movies/`)`                     |
 
 ## Comparison
 
@@ -132,17 +134,17 @@ Here is an overview of them, combined with ratings on properties that guided the
 Please take this table with a grain of salt: a different crate might very well be more suitable for your specific use case.
 (Of course _my_ crate achieves _my_ design goals better than other crates, which might have had different design goals.)
 
-| Library                                                   | Status         | Lin | Mac | Win |Base|User|Proj|Conv|
-| --------------------------------------------------------- | -------------- |:---:|:---:|:---:|:--:|:--:|:--:|:--:|
-| [app_dirs](https://crates.io/crates/app_dirs)             | Unmaintained   |  ✔  |  ✔  |  ✔  | 🞈  | ✖  | ✔  | ✖  |
-| [app_dirs2](https://crates.io/crates/app_dirs2)           | Maintained     |  ✔  |  ✔  |  ✔  | 🞈  | ✖  | ✔  | ✖  |
-| **dirs**                                                  | **Developed**  |  ✔  |  ✔  |  ✔  | ✔  | ✔  | ✖  | ✔  |
-| [directories](https://crates.io/crates/directories)       | Developed      |  ✔  |  ✔  |  ✔  | ✔  | ✔  | ✔  | ✔  |
-| [s_app_dir](https://crates.io/crates/s_app_dir)           | Unmaintained?  |  ✔  |  ✖  |  🞈  | ✖  | ✖  | 🞈  | ✖  |
-| [standard_paths](https://crates.io/crates/standard_paths) | Maintained     |  ✔  |  ✖  |  ✔  | ✔  | ✔  | ✔  | ✖  |
-| [xdg](https://crates.io/crates/xdg)                       | Maintained     |  ✔  |  ✖  |  ✖  | ✔  | ✖  | ✔  | 🞈  |
-| [xdg-basedir](https://crates.io/crates/xdg-basedir)       | Unmaintained?  |  ✔  |  ✖  |  ✖  | ✔   | ✖  | ✖  | 🞈  |
-| [xdg-rs](https://crates.io/crates/xdg-rs)                 | Obsolete       |  ✔  |  ✖  |  ✖  | ✔   | ✖  | ✖  | 🞈  |
+| Library                                                   | Status        | Lin | Mac | Win | Base | User | Proj | Conv |
+| --------------------------------------------------------- | ------------- | :-: | :-: | :-: | :--: | :--: | :--: | :--: |
+| [app_dirs](https://crates.io/crates/app_dirs)             | Unmaintained  | ✔  | ✔  | ✔  |  🞈   |  ✖  |  ✔  |  ✖  |
+| [app_dirs2](https://crates.io/crates/app_dirs2)           | Maintained    | ✔  | ✔  | ✔  |  🞈   |  ✖  |  ✔  |  ✖  |
+| **dirs**                                                  | **Developed** | ✔  | ✔  | ✔  |  ✔  |  ✔  |  ✖  |  ✔  |
+| [directories](https://crates.io/crates/directories)       | Developed     | ✔  | ✔  | ✔  |  ✔  |  ✔  |  ✔  |  ✔  |
+| [s_app_dir](https://crates.io/crates/s_app_dir)           | Unmaintained? | ✔  | ✖  |  🞈  |  ✖  |  ✖  |  🞈   |  ✖  |
+| [standard_paths](https://crates.io/crates/standard_paths) | Maintained    | ✔  | ✖  | ✔  |  ✔  |  ✔  |  ✔  |  ✖  |
+| [xdg](https://crates.io/crates/xdg)                       | Maintained    | ✔  | ✖  | ✖  |  ✔  |  ✖  |  ✔  |  🞈   |
+| [xdg-basedir](https://crates.io/crates/xdg-basedir)       | Unmaintained? | ✔  | ✖  | ✖  |  ✔  |  ✖  |  ✖  |  🞈   |
+| [xdg-rs](https://crates.io/crates/xdg-rs)                 | Obsolete      | ✔  | ✖  | ✖  |  ✔  |  ✖  |  ✖  |  🞈   |
 
 - Lin: Linux support
 - Mac: macOS support
@@ -212,10 +214,10 @@ entries on Linux has been improved (contributed by @tmiasko, thank you!):
 
 Licensed under either of
 
- * Apache License, Version 2.0
-   ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license
-   ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0
+  ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+- MIT license
+  ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
 
 at your option.
 
